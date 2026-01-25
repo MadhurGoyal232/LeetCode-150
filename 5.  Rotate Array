@@ -1,0 +1,20 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k = k%nums.length;
+        int[] arr = new int[nums.length];
+        int r = nums.length - k;
+        for(int i=0;i<k;i++){
+            arr[i] = nums[r++];
+        }
+        int x = 0;
+        for(int i=k;i<nums.length;i++){
+            arr[i] = nums[x++];
+        }
+
+        for(int i=0;i<nums.length;i++){
+            nums[i] = arr[i];
+        }
+    }
+}
+
+or you can reverse whole array, then reverse elements from 0 to k-1 and then k to nums.length-1
