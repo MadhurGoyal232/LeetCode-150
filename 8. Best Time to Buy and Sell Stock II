@@ -1,0 +1,44 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]>prices[i-1]){
+                profit+= prices[i] - prices[i-1];
+            }
+        }
+        return profit;
+    }
+}
+
+DP SOLUTION-------------------------------------
+
+// class Solution {
+//     public int maxP(int[] prices, int dp[][], int index, int buy){
+//         if(index == prices.length){
+//             return 0;
+//         }
+
+//         if(dp[index][buy]!= -1){
+//             return dp[index][buy];
+//         }
+//         int profit = 0;
+//         if(buy == 1){
+//             profit = Math.max(-prices[index] + maxP(prices,dp,index+1,0)  , maxP(prices,dp,index+1, 1));
+//         }
+//         else{
+//             profit = Math.max(prices[index] + maxP(prices, dp,index+1, 1) , maxP(prices,dp,index+1,0));
+//         }
+
+//         return dp[index][buy] = profit;
+        
+//     }
+//     public int maxProfit(int[] prices) {
+//         int dp[][] = new int[prices.length][2];
+        
+//         for(int i[] : dp){
+//             Arrays.fill(i, -1);
+//         }
+//         return maxP(prices,dp , 0 , 1);
+//     }
+// }
