@@ -1,0 +1,54 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        
+        
+        int count = 0;
+        int start = 0;
+        HashMap<Character , Integer> map = new HashMap<>();
+
+        for(int i=0;i<s.length();i++){
+            
+            if(map.containsKey(s.charAt(i))){
+            
+                int r = map.get(s.charAt(i));
+                for(int j=start;j<r;j++){
+                    map.remove(s.charAt(j));
+                }
+                start = r+1;
+            }
+            else{
+                count = Math.max(count ,i-start+1);
+            }
+            map.put(s.charAt(i) , i);
+
+        }
+        return count;
+    }
+}
+
+// class Solution {
+//     public int lengthOfLongestSubstring(String s) {
+
+//         if (s.length() == 0) return 0;
+
+//         int left = 0;
+//         int right = 0;
+//         int count = 0;
+
+//         StringBuilder sb = new StringBuilder();
+
+//         while (right < s.length()) {
+//             char ch = s.charAt(right);
+
+//             if (sb.toString().indexOf(ch) == -1) {
+//                 sb.append(ch);
+//                 right++;
+//                 count = Math.max(count, sb.length());
+//             } else {
+//                 sb.deleteCharAt(0);
+//                 left++;
+//             }
+//         }
+//         return count;
+//     }
+// }
