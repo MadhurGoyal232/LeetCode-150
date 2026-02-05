@@ -1,0 +1,72 @@
+class Solution {
+    ArrayList<Integer> list = new ArrayList<>();
+    public void makeZero(int[][] matrix, ArrayList<Integer> list){
+        while(!list.isEmpty()){
+            int x = list.remove(0);
+
+            for(int i=0;i<matrix[0].length;i++){
+                matrix[x][i] = 0;
+            }
+            int y = list.remove(0);
+
+            for(int j=0;j<matrix .length;j++){
+                matrix[j][y] = 0;
+            }
+
+        }
+    }
+    public void setZeroes(int[][] matrix) {
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j] == 0){
+                    list.add(i);
+                    list.add(j);
+                }
+            }
+        }
+        makeZero(matrix, list);
+
+        
+    }
+}
+
+
+
+
+
+
+
+// class Solution {
+//     public void setZeroes(int[][] matrix) {
+
+//         ArrayList<Integer> list = new ArrayList<>();
+
+//         for(int i=0;i<matrix.length;i++){
+
+//             for(int j=0;j<matrix[i].length;j++){
+
+//                 if(matrix[i][j] == 0){
+//                     list.add(i);
+//                     list.add(j);
+//                 }
+//             }           
+//         }
+        
+//         for(int i=0;i<list.size();i++){
+
+//                 int x = list.get(i);
+//                 int y = list.get(i+1); 
+//                 for(int j=0;j<matrix[x].length;j++){
+//                     matrix[x][j] = 0;
+//                 }
+
+//                  for(int r=0;r<matrix.length;r++){
+//                     matrix[r][y] = 0;
+//                 }
+//                 if(i == list.size()){
+//                     break;
+//                 }
+//                 i++;
+//         }
+//     }
+// }
