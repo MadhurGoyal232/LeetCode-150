@@ -1,0 +1,31 @@
+class Solution {
+     public double myPow(double x, int n) {
+    //     if(n>0){
+         
+    //      double y = x;
+    //      double result = 1.0;
+        
+    //     for(int i=0;i<n;i++){
+    //         result = result*y;
+    //     }
+    //     return result;
+    //     }else{
+    //         double c = 1;
+
+    //         double y = x;
+    //         double result = 1.0;
+            
+    //         for(int i=0;i<Math.abs(n);i++){
+    //             result = result*y;
+    //         }
+    //         c = 1/result;
+    //         return c;
+
+
+
+    //     }
+        
+    // }
+    return Math.pow(x,n);
+    }   
+}
