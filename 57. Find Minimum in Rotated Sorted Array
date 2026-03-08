@@ -1,0 +1,28 @@
+class Solution {
+    // we are basically looking for sorted array, and for the sorted one 1st element will
+    // be the smallest one and we can discard that array. we are doing that again and again
+    // because always there will be one array which will be always sorted.
+    public int findMin(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        int min = (int)1e9;
+        while(low<= high){
+
+            int mid = low+ (high-low)/2;
+
+            if(nums[mid]<nums[high]){
+                if(min> nums[mid]){
+                    min = nums[mid];
+                }
+               
+                high = mid-1;
+            }else{
+                if(min> nums[mid]){
+                    min = nums[low];
+                }
+                low = mid+1;
+            }
+        }
+        return min;
+    }
+}
