@@ -1,0 +1,76 @@
+class Solution {
+    public void helper(List<String> list, HashMap<Character, String> map, String digits, StringBuilder sb, int index){
+        if(sb.length() == digits.length()){
+            list.add(sb.toString());
+            return;
+        }
+        char c = digits.charAt(index);
+        String s = map.get(c);
+        for(char ch: s.toCharArray()){
+            sb.append(ch);
+            helper(list,map,digits,sb,index+1);
+            sb.deleteCharAt(sb.length()-1);
+        }
+
+    }
+    public List<String> letterCombinations(String digits) {
+        HashMap<Character, String> map = new HashMap<>();
+               
+        map.put('2' , "abc");
+        map.put('3' , "def");
+        map.put('4' , "ghi");
+        map.put('5' , "jkl");
+        map.put('6' , "mno");
+        map.put('7' , "pqrs");
+        map.put('8' , "tuv");
+        map.put('9' , "wxyz");
+        List<String> list = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        helper(list, map, digits, sb, 0);
+        return list;
+    }
+}
+
+
+
+// class Solution {
+
+//     public void helper(String digits, List<String> list , HashMap<Character, String> map ,          StringBuilder str , int idx){
+
+//         if(digits.length() == str.length()){
+//             list.add(str.toString());
+//             return;
+//         }
+
+//         String cur = map.get(digits.charAt(idx));
+//         int len = cur.length();
+//         for(int j=0;j<len;j++){
+//             str.append(cur.charAt(j));
+//             helper(digits , list , map , str, idx+1);
+//             str.deleteCharAt(str.length() -1);
+//         }
+//     }
+//     public List<String> letterCombinations(String digits) {
+        
+//         List<String> list = new ArrayList<>();
+//         HashMap<Character, String> map = new HashMap<>();
+               
+//         map.put('2' , "abc");
+//         map.put('3' , "def");
+//         map.put('4' , "ghi");
+//         map.put('5' , "jkl");
+//         map.put('6' , "mno");
+//         map.put('7' , "pqrs");
+//         map.put('8' , "tuv");
+//         map.put('9' , "wxyz");
+
+//         StringBuilder sb = new StringBuilder();
+
+//         helper(digits, list , map , sb , 0);
+
+//         return list;
+//     }
+// }
+
+
+
